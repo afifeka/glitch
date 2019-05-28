@@ -136,4 +136,4 @@ bot.on("message", async message => {
 
 });
 
-bot.login("NTc5MTg0MTY2NDExOTYwMzMw.XO1Fog.5B9RN51lFWeUb1VvhDGHxo_v9Vo");
+bot.login(process.env.TOKEN);
