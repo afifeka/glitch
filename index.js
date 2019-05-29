@@ -22,8 +22,8 @@ bot.on("message", async message => {
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!kUser) return message.channel.send("Tidak ada user");
     let kReason = args.join(" ").slice(22);
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Tidak ada izin");
-    if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Tidak bisa kick");
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("Tidak ada izin");
+    if(kUser.hasPermission("ADMINISTRATOR")) return message.channel.send("Tidak bisa kick");
 
     message.delete().catch(O_o=>{});
     message.channel.send(`${kUser} telah dikick oleh ${message.author}, karena ${kReason}`)
@@ -36,8 +36,8 @@ bot.on("message", async message => {
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!bUser) return message.channel.send("Tidak ada user");
     let bReason = args.join(" ").slice(22);
-    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("Tidak ada izin");
-    if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Tidak bisa kick");
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("Tidak ada izin");
+    if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("Tidak bisa kick");
 
     message.delete().catch(O_o=>{});
     message.channel.send(`${bUser} telah dibanned oleh ${message.author}, karena ${bReason}`)
@@ -90,7 +90,7 @@ bot.on("message", async message => {
       let wUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
           if(!wUser) return message.channel.send("User tidak ditemukan");
           let wReason = args.join(" ").slice(22);
-          if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Tidak bisa mute");
+          if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("Tidak bisa mute");
 
           message.delete().catch(O_o=>{});
           message.channel.send(`${wUser} anda telah mendapat peringatan dari ${message.author}, karena ${wReason}`)
@@ -100,7 +100,7 @@ bot.on("message", async message => {
   if(cmd === `${prefix}mute`){
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!tomute) return message.reply("User tidak ditemukan!");
-    if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("Tidak bisa mute!");
+    if(tomute.hasPermission("ADMINISTRATOR")) return message.reply("Tidak bisa mute!");
     let muterole = message.guild.roles.find(`name`, "muted");
     //start of create role
     if(!muterole){
