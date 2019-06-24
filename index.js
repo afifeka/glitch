@@ -11,6 +11,12 @@ bot.on("ready", async () => {
 bot.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
+    function randomStatus() {
+    let status = [`Report Hacker!!`, `Ketik +help`, `Hexagon Discord`]
+    let rstatus = Math.floor(Math.random() * status.length);
+    client.user.setActivity(status[rstatus], {type: 'STREAMING'});
+
+    }; setInterval(randomStatus, 15000)
 
   let prefix = botconfig.prefix;
   let messageArray = message.content.split(" ");
