@@ -14,7 +14,7 @@ bot.on("message", async message => {
     function randomStatus() {
     let status = [`Report Hacker!!`, `Ketik +help`, `Hexagon Discord`]
     let rstatus = Math.floor(Math.random() * status.length);
-    client.user.setActivity(status[rstatus], {type: 'STREAMING'});
+    bot.user.setActivity(status[rstatus], {type: 'STREAMING'});
 
     }; setInterval(randomStatus, 15000)
 
