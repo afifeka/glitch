@@ -58,7 +58,7 @@ bot.on("message", async message => {
     let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     let nickname = args[0]
 
-    user.setNickname({nick: message.content.replace(`⟨ GUEST ⟩ ${nickname}`)});
+    user.setNickname({nick: message.content.replace('changeNick ', `⟨ GUEST ⟩ ${nickname}`)});
 
     let player = message.guild.roles.find("name", "Player");
     user.removeRole(player);
