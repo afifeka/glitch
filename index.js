@@ -36,6 +36,23 @@ bot.on("message", async message => {
     message.guild.member(kUser).kick(kReason);
     return;
   }
+   bot.on("message", (message) => {
+    if (message.content.includes("https://discord")) {
+      console.log("deleted " + message.content + " from " + message.author)
+      message.delete(1);
+      message.channel.sendMessage(message.author + "Anda tidak bisa mengirim link discord diserver ini!")
+    }
+    if (message.content.includes("http://discord")) {
+      console.log("deleted " + message.content + " from " + message.author)
+      message.delete(1);
+      message.channel.sendMessage(message.author + "Anda tidak bisa mengirim link discord diserver ini!")
+    }
+    if (message.content.includes("www.discord")) {
+      console.log("deleted " + message.content + " from " + message.author)
+      message.delete(1);
+      message.channel.sendMessage(message.author + "Anda tidak bisa mengirim link discord diserver ini!")
+    }
+  });
 
   if(cmd === `${prefix}ban`){
 
