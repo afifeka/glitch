@@ -46,6 +46,23 @@ bot.on("message", async message => {
 
     return;
   }
+  
+  
+   if(cmd === `${prefix}verify`) {
+    let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    let nickname = args[0]
+
+    user.setNickname({nick: message.content.replace(`⟨ GUEST ⟩ ${nickname}`)});
+
+    let player = message.guild.roles.find("name", "Player");
+    user.removeRole(player);
+    
+    let verify = message.guild.roles.find("name", "GUEST");
+    user.addRole(verify);
+    
+    message.author.send("Terima kasih telah verify!")
+
+  }
 
 
   if(cmd === `${prefix}report`){
